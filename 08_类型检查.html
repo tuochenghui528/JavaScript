@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类型检查</title>
+</head>
+<body>
+    <script>
+        let a = 10;
+        let b = 10n;
+
+        /* 
+            typeof 运算符
+                - typeof用来检查不同的值的类型
+                - 它会根据不同的值返回不同的结果
+                - 检查的是变量值的类型  并不是变量的类型，js中变量并没有类型
+        */
+
+        console.log(typeof a);//number
+        console.log(typeof(b));//bigint
+        /* typeof() 有没有括号都可以 */
+    </script>
+</body>
+</html>
