@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关系运算符</title>
+</head>
+<body>
+    <script>
+        /* 
+            关系运算符
+                - 关系运算符用来检查两个值之间的关系是否成立
+                    成立返回true,不成立返回false
+
+                >
+                    - 用来检查左值是否大于右值
+
+                >= 
+                    - 用来检查左值是否大于等于右值
+
+                < 
+                     - 用来检查左值是否小于右值
+
+                <=
+                    - 用来检查左值是否小于或等于右值
+            注意
+                当对非数值进行关系运算的时候，它会先将前转换为数值然后再进行比较
+                当关系运算符的两端是两个字符串，它不会将字符串转换为数值，
+                    而是逐位的比较字符的Unicode编码
+        */
+
+        console.log(false < 10);//true 因为false会转成数值位0
+        console.log('2' < 10);// true 因为‘2’会转成数值2
+        console.log('a' < 10);//false 因为‘a’转成数字位NaN 所以没法比较 会一直位false
+
+        /* 
+        大写字母A-Z对应的ASCII码值是65-90
+        小写字母a-z对应的ASCII码值是97-122 
+        */
+        console.log('a' < 'b');//true //纯字符串比较的时候 会将字符串在电脑中的ASCII码进行比较
+        console.log('abc' < 'b');//true //会逐位比较 首先比较a < b 成立后就不会在往后比较了
+    </script>
+</body>
+</html>

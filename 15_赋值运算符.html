@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赋值运算符</title>
+</head>
+<body>
+    <script>
+        /* 
+            赋值运算符用来将一个值赋值给一个变量
+
+            =
+                - 将符号右侧的值赋值给符号左侧的变量
+
+            ??= 
+                - 空赋值
+                - 只有当变量的值为null或undefined时才会对变量进行赋值
+
+            += 
+                - a += n 等价于 a = a + n
+
+            *=
+                - a *= n 等价于 a = a * n
+
+            /= 
+                - a /= n 等价于 a = a / n
+
+            %=
+                - a %= n 等价于 a = a % n
+
+            **=
+                a **= n 等价于 a = a ** n
+
+        */
+
+
+        let a = null; //我是null或者undefined的时候才赋值
+        a = undefined; //我是null或者undefined的时候才赋值
+        a = '我是有值的'; //我是有值的
+        a ??=  '我是null或者undefined的时候才赋值';
+        console.log(a);
+    </script>
+</body>
+</html>
