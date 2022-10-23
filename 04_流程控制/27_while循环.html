@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while循环</title>
+</head>
+<body>
+    <script>
+        /* 
+            循环：
+                while循环
+                do while循环
+                for循环
+
+            while语法：
+                - while(条件表达式) {
+                    代码...
+                }
+                -执行顺序
+                    当条件表达式成立的时候执行代码块，代码块执行完后，条件表达式还成立，则会继续执行代码块，
+                    直至条件表达式返回false时候停止。 
+
+                - 注意
+                    break可以跳出循环 当while的条件表达式横为true时，可以在代码块内部用break来控制结束循环
+        */
+       let a = 0;
+       while(a < 5) {
+        console.log(a);
+        a++;
+       }
+
+       while(1) {
+        if (a > 5) {
+            console.log('break');
+            break;
+        }
+        a++;
+       }
+
+       /* 
+        练习：
+            假设银行存款的年利率为5%，1000块钱存多少年可以变成5000块
+       */
+        let num = 1000;
+        let year = 0;
+        while(num < 5000) {
+            num += num * 0.05;
+            year++;
+        }
+        console.log(year);
+    </script>
+</body>
+</html>
