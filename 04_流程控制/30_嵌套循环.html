@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嵌套循环</title>
+</head>
+<body>
+    <script>
+        /* 
+            练习1：
+                在网页中打印出如下图形
+                *****
+                *****
+                *****
+                *****
+                *****
+        */
+       for (let i = 0; i < 5; i++) {
+            document.write('*****<br>');
+       }
+
+       /* 
+            练习2：
+                在网页中打出如下图形
+                *
+                **
+                ***
+                ****
+                *****
+       */
+        for(i = 0; i < 5; i++) {
+            for (j = 0; j < i + 1; j++) {
+                document.write('*')
+            }
+            document.write('<br>');
+        }
+
+        /* 
+            练习3：
+                在网页中打出如下图形
+                *****
+                ****
+                ***
+                **
+                *
+        */
+       for(let i = 0; i < 5; i++) {
+        for(let j = i; j < 5; j++) {
+            document.write('*');
+        }
+        document.write('<br>');
+       }
+
+       /* 
+            练习4：
+                正网页中打印出九九乘法表
+                1x1=1
+                1x2=2 2x2=4
+                1x3=3 2x3=6 3x3=9
+       */
+       for(let i = 1; i < 10; i++) {
+        for(let j = 1; j < i + 1; j++) {
+            document.write(`${j}x${i}=${j * i}&nbsp&nbsp`)
+        }
+        document.write('<br>');
+       }
+
+       /* 
+            练习5：
+                100以内所有的质数
+       */
+      for(let i = 2; i < 100; i++) {
+        let flag = false;
+        for(let j = 2; j < i; j++) {
+            if (i % j === 0) {
+                flag = true;
+            }
+        }
+        !flag && document.write(`${i} `);
+      }
+    </script>
+</body>
+</html>

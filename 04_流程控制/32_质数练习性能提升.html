@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>质数练习性能提升</title>
+</head>
+<body>
+    <script>
+        /* 
+            console.time()开启一个计时器
+            console.timeEnd()结束计时器
+            （）里可以写计时器名称 但是开启名称和结束的计时器的名称得一致
+
+            优化前：
+                1000： 3ms
+                10000：44ms
+                100000：4051ms
+            加break优化
+                1000： 1ms
+                10000: 23ms
+                100000: 1450ms
+        */
+       console.time('质数求解用行时间')
+       /*
+       原始代码
+        for(let i = 2; i < 1000; i++) {
+        let flag = false;
+        for(let j = 2; j < i; j++) {
+            if (i % j === 0) {
+                flag = true;
+            }
+        }
+        // !flag && console.log(i);
+       } 
+       */
+
+       /* 
+       优化第一版加break
+       for(let i = 2; i < 100000; i++) {
+        let flag = false;
+        for(let j = 2; j < i; j++) {
+            if (i % j === 0) {
+                flag = true;
+                break;
+            }
+        }
+        // !flag && console.log(i);
+       } 
+       */
+
+       //取根号下i来减少循环
+       for(let i = 2; i < 100; i++) {
+        let flag = false;
+        for(let j = 2; j <= i ** .5; j++) {
+            if (i % j === 0) {
+                flag = true;
+                break;
+            }
+        }
+        !flag && console.log(i);
+       }
+       console.timeEnd('质数求解用行时间')
+    </script>
+</body>
+</html>
