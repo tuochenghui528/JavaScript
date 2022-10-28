@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的属性</title>
+</head>
+<body>
+    <script>
+        /* 
+            属性名
+                - 通常属性名就是一个字符串，所以属性名可以是任何值，没有什么特殊要求
+                    但是如果你的属性名太特殊，不能直接使用，需要用[]来设置
+                - 也可以使用（Symbol）作为属性名，来添加属性
+                    获取这种属性时也必须使用Symbol
+                使用Symbol添加的属性 通常是那些不希望被外界访问的属性
+
+                - 使用[]去操作属性时，可以使用变量
+
+                使用typeof检查一个对象时，会返回object
+
+                in运算符
+                    - 用来检查对象中是否含有某个属性
+                    - 语法 属性名 in obj
+                    - 如果有返回true, 没有返回false
+        */
+        let obj = Object();
+        let mySymbol = Symbol();
+       obj[mySymbol] = '通过Symbol添加的属性';
+       console.log(obj);
+    //    console.log(obj[Symbol()]) //undefined 需要mySymbol才能取出来， 相当于钥匙一样
+    console.log(obj[mySymbol]);//通过Symbol添加的属性
+    let newSymbol = Symbol();
+    console.log(obj[newSymbol]);//undefined 需要mySymbol才能取出来， 相当于钥匙一样
+    
+        
+        obj.name ='tttt';
+        console.log('name' in obj);//true
+        console.log('wu' in obj);//false
+    </script>
+</body>
+</html>
