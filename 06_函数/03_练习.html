@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习</title>
+</head>
+<body>
+    <script>
+        /* 
+            练习一
+                声明了全局变量a;
+                fn中改变了全局变量a的指向，指向了值为2的内存地址
+                所以之后全局变量a的值变成了2
+        */
+       /*  
+            var a = 1;
+            function fn() {
+                a = 2;
+                console.log(a);// 2
+            }
+            fn(); 
+            console.log(a); // 2
+        */
+
+
+        /* 
+            练习二
+                函数fn()中使用var关键字定义了局部变量a,
+                a的作用域在函数fn()中是被提升的，所以函数中的第一个a打印的是undefined
+                函数中第二个a打印的是函数中a赋值后的值，也就是2
+                函数外打印的a实际上是全局定义的a=1
+        */
+        /* 
+            var a = 1;
+            function fn() {
+                console.log(a); // undefined
+                var a = 2;
+                console.log(a); // 2
+            }
+            fn(); 
+            console.log(a); // 1 
+        */
+
+        /*
+            练习三
+                函数中并没用定义局部变量a，所以函数中的第一个a会往上找，找到了函数外的全局变量a=1
+                函数中第二个a是改变了外层全局变量的值
+                所以函数外的a也是2
+        */
+        /* 
+            var a = 1;
+            function fn() {
+                console.log(a); // 1
+                a = 2;
+                console.log(a); // 2
+            }
+            fn(); 
+            console.log(a); // 2 
+        */
+
+        /* 
+            练习四
+                函数中第一个a是从函数中传过来的形参，函数中实参没传，所以第一个a是undefined
+                第二个a的时候，形参a已经被赋值为2了
+                函数外的a是定义的全局变量a = 1
+        */
+        /* 
+            var a = 1;
+            function fn(a) {
+                console.log(a); // undefined
+                a = 2;
+                console.log(a); // 2
+            }
+            fn(); 
+            console.log(a); // 1 
+        */
+
+        /* 
+            练习五
+                函数中a接收传过来的实参，实参是最外层定义的全局变量a 所以是1
+                第二个a的时候，形参a已经被赋值为2了
+                函数外的a是定义的全局变量a = 1
+        */
+        /* 
+            var a = 1;
+            function fn(a) {
+                console.log(a); // 1
+                a = 2;
+                console.log(a); // 2
+            }
+            fn(a); 
+            console.log(a); // 1  
+        */
+
+        /* 
+            练习六
+                下列代码中，用var的关键字定义的变量会被提升，函数a也会被提升并且会被赋值
+                所以当var定义的和函数都被提升时，函数提升后会被赋值，所以第一个a打印fn(alert(2))
+                第二个a打印的是var关键字定义的a并复制为1
+                第三个a因为前面的fn(alert(2))函数已被提升执行了，所以第三个a还是打印1
+                第四个a打印3
+                第五个a打印fn(alert(4))
+                第六个a打印的跟第wuge一样，因为中间var a实际上是不执行的，因为a已经在第一个console.log(a)之后就被提升了
+                
+        */
+       console.log(a); //fn(alert(2))
+       var a = 1
+       console.log(a)//1
+       function a() {
+        alert(2);
+       }
+       console.log(a)//1
+       var a = 3
+       console.log(a)//3
+       var a = function() {
+        alert(4);
+       }
+       console.log(a)//fn(alert(4))
+       var a
+       console.log(a)//fn(alert(4))
+    </script>
+</body>
+</html>
