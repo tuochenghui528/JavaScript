@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法</title>
+</head>
+<body>
+    <script>
+        class Person {
+            name = '八戒';
+            // sayHello = function() {
+
+            // }
+            sayHello() {
+                //实例方法中this就是当前实例   
+                console.log('hello');
+            }//添加实例方法
+
+            static test() {
+                // Person.test()
+                // 静态方法中的this是当前类
+                console.log('我是静态对象');
+            }
+        }
+        const p1 = new Person();
+        console.log(p1);
+    </script>
+</body>
+</html>

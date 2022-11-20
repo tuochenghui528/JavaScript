@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数</title>
+</head>
+<body>
+    <script>
+        class Person {
+           /*  
+                可以不设置 
+                name;
+                age;
+                gender;
+            
+            */
+            // 在类中可以添加一个特殊的方法 constructor
+            constructor(name, age, gender) {// 该方法称为构造函数
+                /* 
+                    1. 构造函数会在我们调用类创建对象时执行
+                    2. 构造函数中的this还是实例化后的this
+                    3. 在构造函数中可以为实例属性赋值
+                */
+                
+                this.name = name;
+                this.age = age;
+                this.gender = gender;
+            }
+        }
+        //创建一个Person的实例
+        const p1 = new Person('八戒', 18, '男');
+        const p2 = new Person('悟空', 20, '男');
+        const p3 = new Person('沙僧', 12, '男');
+        console.log(p1,p2,p3)
+    </script>
+</body>
+</html>
