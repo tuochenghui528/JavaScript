@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多态</title>
+</head>
+<body>
+    <script>
+        class Dog {
+            constructor(name){
+                this.name = name;
+            }
+        }
+
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+        }
+
+        let dog = new Dog('旺财');
+        let person = new Person('八戒');
+
+        /* 
+            定义一个函数，传入一个对象，并打印出这个对象的name值
+            
+            多态：
+                - 在JS中不会检查参数的类型，所以这就意味着任何数据都可以作为参数传递
+                - 要调用某个函数，无需指定类型，只要对象满足某些条件即可
+                - 多态为我们提供了灵活性
+
+                当一个函数中传入猫的类会打印出喵喵喵
+                传入狗的类会打印出汪汪汪
+                传入人的类会打印出哈哈哈
+        */
+       function sayHello(obj) {
+            console.log(`hello${obj.name}`)
+       }
+       sayHello(dog);
+       sayHello(person);
+    </script>
+</body>
+</html>

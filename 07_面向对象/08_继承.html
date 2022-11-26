@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>继承</title>
+</head>
+<body>
+    <script>
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+            sayHello() {
+                console.log('动物在叫~');
+            }
+        }
+        /* 
+            继承
+                - 可以通过extends关键字来完成继承
+                - 当一个类继承另一个类时，被继承的叫父类（超类），继承的为子类
+                - 通过继承可以减少重复的代码，并且可以在不修改一个类的前提对其进行扩展
+
+                封装 --- 安全性（setter getter）
+                继承 --- 扩展性
+                多态 --- 灵活性
+        */
+
+        class Dog extends Animal {
+            /* 
+                也可以在子类中重写父类的构造函数方法，但是如果重写了构造函数方法后
+                    相当于父类的构造函数被替换了，那么父类就不会实例化出对象，继承也就没法进行了
+                    所以在从写构造函数的时候，第一行代码应该是super()
+                
+                子类的方法中中调用父类方法super.sayHello()
+            */
+           constructor(name, age) {
+            super(name);
+            this.age = age;
+           }
+            //可以在子类中重写父类的方法
+            sayHello() {
+                console.log('汪汪汪');
+                super.sayHello();//子类的方法中可以通过super来调用父类的方法
+            }
+        }
+
+        class Cat extends Animal {
+
+        }
+
+        const dog = new Dog('旺财');
+        const cat = new Cat('汤姆');
+        dog.sayHello();
+        cat.sayHello();
+        console.log(dog, cat);
+    </script>
+</body>
+</html>

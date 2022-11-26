@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型对象</title>
+</head>
+<body>
+    <script>
+        /* 
+            1. 原型对象的读取
+                - obj.__proto__(不建议使用  防止obj.__proto__ = xxx来修改原型)
+                - Object.getPrototypeOf(obj)
+            2. 原型对象中的数据
+                - 对象中的数据（属性、方法等）
+                - constructor（对象的构造函数）
+            3. 原型链
+                - 原型对象也是对象，所以原型对象上也有原型属性，这样就形成了一条原型链；根据对象的复杂
+                    程度不同，原型链的程度也不同
+                    p对象的原型链 p对象 -> 原型 -> 原型 -> null;
+
+                    原型链直到找到Object对象的原型(Object的没有原型是null)
+                    
+            - 作用域链，是找变量的链，找不到会报错
+            - 原型链，是找属性的链，找不到会返回undefined
+        */
+       class Person {
+            constructor(name) {
+                this.name= name;
+            }
+            sayHello() {
+                console.log(`hello${this.name}`);
+            }
+       }
+       const p = new Person('八戒');
+       console.log(p.__proto__);
+       console.log(Object.getPrototypeOf(p));
+    </script>
+</body>
+</html>

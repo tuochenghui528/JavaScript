@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型的修改</title>
+</head>
+<body>
+    <script>
+        /* 
+            一般不建议修改原型，因为原型的修改会使代码的逻辑变的复杂
+            原型修改的方式：
+                1. 通过实例化后的对象p.__proto__.run = () =>{}来给原型对象添加方法和属性
+                    - 这样做的弊端是本来是改实例化对象的，结果把同类的实例化对象都修改了
+                    - 还有就是如果用p.__proto__ = {}会将这个实例化后的对象上的原型替换
+                    - 必须实例化对象后才可以修改
+                2. 直接通过实例的原型属性来修改  Person.prototype.run = () => {}(如过一定要改，推介这样使用)
+                    - 不用创建实例对象就可以修改原型对象
+                    - 修改后同类对象都被修改
+                    - 如果Person.prototype = {}将会将类中的原型全部替换包括继承过来的原型对象
+
+
+            原则：
+                - 最好不要去修改原型对象
+                - 修改最好用Person.prototype去修改
+                - 最好不要给原型直接赋值，会覆盖掉原来的原型对象
+        */
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            sayHello() {
+                console.log(`hello${this.name}`);
+            }
+        }
+        Person.prototype.run = () => {
+            console.log('会飞')
+        }
+        const p1 = new Person('悟空', 18);
+        const p2 = new Person('八戒', 20);
+
+       console.log(Person.prototype === p1.__proto__, Person.prototype === p2.__proto__, p1.__proto__ === p2.__proto__); //true true  true
+    </script>
+</body>
+</html>
